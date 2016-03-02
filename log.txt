@@ -1,0 +1,5 @@
+02 мар 2016 23:24:50.562 ERROR com.epam.task3.action.FileLoader - File not found
+02 мар 2016 23:24:50.612 ERROR com.epam.task3.report.Report - Empty text
+02 мар 2016 23:24:50.613 ERROR com.epam.task3.report.Report - Empty text
+02 мар 2016 23:24:50.613 ERROR com.epam.task3.report.Report - Empty text
+02 мар 2016 23:24:50.615 ERROR com.epam.task3.report.Report - Empty text

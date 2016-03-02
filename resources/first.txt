@@ -1,0 +1,25 @@
+	A Class reference points to a Class object, which manufactures instances of classes and contains all the method code for those instances. It also contains the statics for that class. So a Class reference really does indicate the exact type of what it's pointing to an object of the class Class. 
+	However, the designers of Java SE5 saw an opportunity to make this a bit more specific by allowing you to constrain the type of Class object that the Class reference is pointing to, using the generic syntax. In the following example, both syntaxes are correct: 
+//: typeinfo/GenericClassReferences.java 
+public class GenericClassReferences {  
+public static void main(String[] args) { 
+Class intClass = int.class; 
+Class<Integer> genericIntClass = int.class; 
+genericIntClass = Integer.class; // Same thing 
+intClass = double.class; 
+// genericIntClass = double.class; // Illegal 
+} 
+} ///:~ 
+	The ordinary class reference does not produce a warning. However, you can see that the ordinary class reference can be reassigned to any other Class object, whereas the generic class reference can only be assigned to its declared type. By using the generic syntax, you allow the compiler to enforce extra type checking.
+	What if you'd like to loosen the constraint a little? Initially, it seems like you ought to be able to do something like generic Class. 
+	To loosen the constraints when using generic Class references, I employ the wildcard, which is part of Java generics. The wildcard symbol is '?', and it indicates "anything". So we can addwildcards to the ordinary Class reference in the above example and produce the same results: 
+//: typeinfo/WildcardClassReferences.java 
+public class WildcardClassReferences {
+public static void main(String[] args) { 
+Class<?> intClass = int.class; 
+intClass = double.class; 
+} 
+} ///:~ 
+	In Java SE5, Class<?> is preferred over plain Class, even though they are equivalent andthe plain Class, as you saw, doesn't produce a compiler warning. The benefit of Class<?> is that it indicates that you aren't just using a non-specific class reference by accident, or out of ignorance. You chose the non-specific version.
+
+
